@@ -11,7 +11,7 @@ and providers to render files inline:
 * Text/Code (SyntaxHighlighter integration)
 
 
-==Notes==
+## Notes ##
 
 * Access to non-public files by Office Web Viewer and
 Google Docs Viewer is managed via Elgg's web services API. You must therefore
@@ -27,13 +27,13 @@ Audio.js - http://kolber.github.io/audiojs/
 SyntaxHighlighter - http://alexgorbatchev.com/SyntaxHighlighter/
 
 
-==Acknowledgements==
+## Acknowledgements ##
 
 * Initial development of the plugin was commissioned and sponsored by
 ArckInteractive (www.arckinteractive.com)
 
 
-==Screenshots==
+## Screenshots ##
 
 ![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/pdf.png "PDF")
 ![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/powerpoint.png "Powerpoint")
