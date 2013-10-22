@@ -31,3 +31,10 @@ SyntaxHighlighter - http://alexgorbatchev.com/SyntaxHighlighter/
 
 * Initial development of the plugin was commissioned and sponsored by
 ArckInteractive (www.arckinteractive.com)
+
+
+== Screenshots ==
+
+![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/pdf.png "PDF")
+![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/powerpoint.png "Powerpoint")
+![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/video.png "Video")
