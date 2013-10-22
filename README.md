@@ -37,4 +37,4 @@ ArckInteractive (www.arckinteractive.com)
 
 ![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/pdf.png "PDF")
 ![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/powerpoint.png "Powerpoint")
-![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/video.jgp "Video")
+![alt text](https://raw.github.com/hypeJunction/elgg_file_viewer/master/screenshots/video.jpg "Video")
