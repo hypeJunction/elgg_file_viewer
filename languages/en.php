@@ -8,6 +8,7 @@ $english = array(
 	'efv:app:msoffice' => 'MS Office Web Viewer',
 	'efv:app:projekktor' => 'Self-hosted player (Projekktor)',
 	'efv:app:syntaxhighlighter' => 'Inline (Syntax Highlighter)',
+	'efv:app:divx' => 'DivX Web Player',
 	'efv:app:none' => 'No preview',
 	
 	'efv:type:pdf' => 'PDF',
