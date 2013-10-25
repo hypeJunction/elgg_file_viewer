@@ -19,9 +19,7 @@ function elgg_file_viewer_init() {
 			'type' => 'int',
 			'required' => true
 		)
-			), 'Access a non-public file from a remote location', 'GET', false, false);
-
-
+			), 'Access a non-public file from a remote location', 'GET', false, true);
 
 	// Projekktor for Video/Audio support
 	elgg_register_js('projekktor', '/mod/elgg_file_viewer/vendors/projekktor-1.2.38r332/projekktor-1.2.38r332.min.js');
@@ -82,7 +80,7 @@ function elgg_file_viewer_get_public_url($file) {
 		return '';
 	}
 
-	if ($file->access_id == ACCESS_PUBLIC || !elgg_is_logged_in()) {
+	if (!elgg_is_logged_in()) {
 		return $file->getURL();
 	}
 
