@@ -6,7 +6,7 @@ and providers to render files inline:
 
 * Microsoft Office files (Office Web Viewer integration)
 * PDFs and other common file types (Google Docs Viewer integration)
-* Videos (Video.js integration)
+* Video (Projekktor + DivX integration)
 * Audio (audio.js integration)
 * Text/Code (SyntaxHighlighter integration)
 
@@ -22,7 +22,8 @@ providers
 
 Office Web Viewer - http://office.microsoft.com/en-us/web-apps/view-office-documents-online-FX102727753.aspx
 Google Docs Viewer - https://docs.google.com/viewer
-Video.js - http://www.videojs.com/
+Projekktor - http://www.projekktor.com/
+DivX - http://labs.divx.com/
 Audio.js - http://kolber.github.io/audiojs/
 SyntaxHighlighter - http://alexgorbatchev.com/SyntaxHighlighter/
 

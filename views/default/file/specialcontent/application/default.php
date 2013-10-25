@@ -1,10 +1,5 @@
 <?php
 
-$full_view = elgg_extract('full_view', $vars, false);
-if (!$full_view) {
-	return;
-}
-
 $entity = elgg_extract('entity', $vars);
 
 if (!elgg_instanceof($entity, 'object', 'file')) {
@@ -24,41 +19,12 @@ if (elgg_view_exists("file/specialcontent/$mime")) {
 	return;
 }
 
-$url = urlencode(elgg_file_viewer_get_public_url($entity));
+$info = pathinfo($entity->getFilenameOnFilestore());
+$extension = $info['extension'];
 
-switch ($mime) {
-
-	case 'application/msword' :
-	case 'application/msexcel' :
-	case 'application/mspowerpoint' :
-	case 'application/mswrite' :
-	case 'application/x-msword' :
-	case 'application/x-excel' :
-	case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' :
-	case 'application/vnd.openxmlformats-officedocument.wordprocessingml.template' :
-	case 'application/vnd.ms-excel' :
-	case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' :
-	case 'application/vnd.openxmlformats-officedocument.spreadsheetml.template' :
-	case 'application/vnd.ms-powerpoint' :
-	case 'application/vnd.openxmlformats-officedocument.presentationml.presentation' :
-	case 'application/vnd.openxmlformats-officedocument.presentationml.template' :
-	case 'application/vnd.openxmlformats-officedocument.presentationml.slideshow' :
-		$iframe_url = "http://view.officeapps.live.com/op/view.aspx?src=$url";
-		break;
-
-	default :
-		$iframe_url = "https://docs.google.com/viewer?url=$url&embedded=true&overridemobile=true";
-		break;
+$app = elgg_get_plugin_setting($extension, 'elgg_file_viewer');
+if (!$app || $app == 'none') {
+	return;
 }
 
-$attr = elgg_format_attributes(array(
-	'src' => $iframe_url,
-	'name' => $entity->title,
-	'height' => 780,
-	'width' => "100%",
-	'seamless' => true,
-		));
-
-echo '<div class="elgg-col elgg-col-1of1 clearfloat">';
-echo "<iframe $attr></iframe>";
-echo '</div>';
+echo elgg_view("elgg_file_viewer/apps/$app", $vars);

@@ -1,10 +1,5 @@
 <?php
 
-$full_view = elgg_extract('full_view', $vars, false);
-if (!$full_view) {
-	return;
-}
-
 $entity = elgg_extract('entity', $vars);
 
 if (!elgg_instanceof($entity, 'object', 'file')) {
@@ -24,11 +19,12 @@ if (elgg_view_exists("file/specialcontent/$mime")) {
 	return;
 }
 
-elgg_load_js('audiojs');
-elgg_load_js('elgg.audiojs');
+$info = pathinfo($entity->getFilenameOnFilestore());
+$extension = $info['extension'];
 
-$url = elgg_normalize_url("file/download/$entity->guid");
+$app = elgg_get_plugin_setting($extension, 'elgg_file_viewer');
+if (!$app || $app == 'none') {
+	return;
+}
 
-echo '<div class="elgg-col elgg-col-1of1 clearfloat">';
-echo "<audio src=\"$url\" preload=\"auto\">";
-echo '</div>';
+echo elgg_view("elgg_file_viewer/apps/$app", $vars);
