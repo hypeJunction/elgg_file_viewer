@@ -25,7 +25,7 @@ $config = array(
 	),
 	'media' => array(
 		'ext' => array('mp4', 'mp3', 'avi', 'ogv', 'webm', 'ogg', 'anx', 'flv', 'mov', 'm4v', 'wav'),
-		'apps' => array('projekktor', 'google', 'htmlplugin')
+		'apps' => array('projekktor', 'google', 'divx')
 	),
 	'text' => array(
 		'ext' => array('txt'),
