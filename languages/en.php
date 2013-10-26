@@ -3,7 +3,9 @@
 $english = array(
 
 	'efv:settings:mime_remap' => 'Let File Viewer Re-Detect MIME types for MS Office files',
-
+	'efv:settings:enable_ffmpeg' => 'Enable conversion of video and audio files to web-compatible formats using ffmpeg',
+	'efv:settings:ffmpeg_path' => 'Specify the location of the ffmpeg library on your server, if default fails',
+	
 	'efv:app:google' => 'Google Docs Viewer',
 	'efv:app:msoffice' => 'MS Office Web Viewer',
 	'efv:app:projekktor' => 'Self-hosted player (Projekktor)',

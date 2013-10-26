@@ -14,6 +14,26 @@ echo elgg_view('input/dropdown', array(
 ));
 echo '</div>';
 
+echo '<div>';
+echo '<label>' . elgg_echo('efv:settings:enable_ffmpeg') . '</label>';
+echo elgg_view('input/dropdown', array(
+	'name' => 'params[enable_ffmpeg]',
+	'value' => $entity->enable_ffmpeg,
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'yes' => elgg_echo('option:yes')
+	)
+));
+echo '</div>';
+
+echo '<div>';
+echo '<label>' . elgg_echo('efv:settings:ffmpeg_path') . '</label>';
+echo elgg_view('input/text', array(
+	'name' => 'params[ffmpeg_path]',
+	'value' => $entity->ffmpeg_path,
+));
+echo '</div>';
+
 $config = array(
 	'pdf' => array(
 		'ext' => array('pdf'),
