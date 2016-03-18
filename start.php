@@ -27,8 +27,6 @@ function elgg_file_viewer_init() {
 	elgg_register_css('syntaxhighlighter.core', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/styles/shCore.css');
 	elgg_register_css('syntaxhighlighter.theme', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/styles/shThemeDefault.css');
 
-	// FFmpeg class
-	elgg_register_class('FFmpeg', elgg_get_plugins_path() . 'elgg_file_viewer/vendors/ffmpeg/src/ffmpeg.class.php');
 	elgg_register_page_handler('projekktor', 'elgg_file_viewer_projekktor_video');
 }
 
