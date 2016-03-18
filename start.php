@@ -71,70 +71,11 @@ function elgg_file_viewer_get_media_url($file, $format) {
  */
 function elgg_file_viewer_get_mime_type($file) {
 
-	if (!elgg_instanceof($file, 'object', 'file')) {
-		return false;
+	if (!$file instanceof ElggFile) {
+		return;
 	}
 
-	$mime = $file->getMimeType();
-
-	if (!$mime) {
-		$mime = "application/octet-stream";
-	}
-
-	if (elgg_get_plugin_setting('mime_remap', 'elgg_file_viewer') != 'yes') {
-		return $mime;
-	}
-
-	$info = pathinfo($file->getFilenameOnFilestore());
-
-	$extension = $info['extension'];
-
-	if ($mime == "application/zip") {
-		switch ($extension) {
-			case 'docx':
-				$mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-				break;
-			case 'xlsx':
-				$mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-				break;
-			case 'xltx' :
-				$mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.template";
-				break;
-			case 'pptx':
-				$mime = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
-				break;
-			case 'potx' :
-				$mime = "application/vnd.openxmlformats-officedocument.presentationml.template";
-				break;
-			case 'ppsx' :
-				$mime = "application/vnd.openxmlformats-officedocument.presentationml.slideshow";
-				break;
-			case 'dotx' :
-				$mime = "application/vnd.openxmlformats-officedocument.wordprocessingml.template";
-				break;
-		}
-	}
-
-	if ($mime == "application/vnd.ms-office") {
-		switch ($extension) {
-			case "ppt" :
-			case "pot" :
-			case 'pps' :
-				$mime = "application/vnd.ms-powerpoint";
-				break;
-			case 'doc' :
-			case 'dot' :
-				$mime = 'application/msword';
-				break;
-			case 'xls' :
-			case 'xlt' :
-			case 'xla' :
-				$mime = "application/vnd.ms-excel";
-				break;
-		}
-	}
-
-	return $mime;
+	return $file->detectMimeType();
 }
 
 /**

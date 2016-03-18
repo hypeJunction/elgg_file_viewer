@@ -3,18 +3,6 @@
 $entity = elgg_extract('entity', $vars);
 
 echo '<div>';
-echo '<label>' . elgg_echo('efv:settings:mime_remap') . '</label>';
-echo elgg_view('input/dropdown', array(
-	'name' => 'params[mime_remap]',
-	'value' => $entity->mime_remap,
-	'options_values' => array(
-		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
-	)
-));
-echo '</div>';
-
-echo '<div>';
 echo '<label>' . elgg_echo('efv:settings:enable_ffmpeg') . '</label>';
 echo elgg_view('input/dropdown', array(
 	'name' => 'params[enable_ffmpeg]',
