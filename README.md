@@ -1,5 +1,6 @@
 Elgg File Viewer
 ================
+![Elgg 2.1](https://img.shields.io/badge/Elgg-2.1.x-orange.svg?style=flat-square)
 
 An extension to the file plugin that integrates third-party services and providers to render files inline:
 
