@@ -7,18 +7,6 @@ elgg_register_event_handler('init', 'system', 'elgg_file_viewer_init');
 
 function elgg_file_viewer_init() {
 
-	// Registering a new viewtype for output buffer
-	elgg_register_viewtype('ob');
-	elgg_register_viewtype_fallback('ob');
-
-	// Exposing a function for remote access to non-public files
-	expose_function('efv.download', 'elgg_file_viewer_download', array(
-		'guid' => array(
-			'type' => 'int',
-			'required' => true
-		)
-			), 'Access a non-public file from a remote location', 'GET', false, true);
-
 	// Projekktor for Video/Audio support
 	elgg_register_js('projekktor', '/mod/elgg_file_viewer/vendors/projekktor-1.2.38r332/projekktor-1.2.38r332.min.js');
 	elgg_register_simplecache_view('js/elgg_file_viewer/projekktor');
@@ -70,33 +58,20 @@ function elgg_file_viewer_download($guid) {
 	return array($export);
 }
 
+
 /**
  * Get publicly accessible URL for the file
  *
  * @param ElggFile $file
- * @return string
+ * @return string|false
  */
 function elgg_file_viewer_get_public_url($file) {
 
-	if (!elgg_instanceof($file, 'object', 'file')) {
-		return '';
+	if (!$file instanceof ElggFile) {
+		return false;
 	}
 
-	if (!elgg_is_logged_in()) {
-		return $file->getURL();
-	}
-
-	$user = elgg_get_logged_in_user_entity();
-	$token = create_user_token($user->username);
-
-	$base_url = elgg_normalize_url("services/api/rest/ob");
-	$params = array(
-		'method' => 'efv.download',
-		'guid' => $file->getGUID(),
-		'auth_token' => $token
-	);
-
-	return elgg_http_add_url_query_elements($base_url, $params);
+	return elgg_get_download_url($file, false, '+60 minutes');
 }
 
 /**
