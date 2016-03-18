@@ -7,7 +7,7 @@ and providers to render files inline:
 * Microsoft Office files (Office Web Viewer integration)
 * PDFs and other common file types (Google Docs Viewer integration)
 * Video/Audio (Projekktor & DivX Web Player)
-* Text/Code (SyntaxHighlighter integration)
+* Text/Code (Prism.js integration)
 
 ## Notes ##
 
@@ -23,7 +23,7 @@ providers
 * Google Docs Viewer - https://docs.google.com/viewer
 * Projekktor - http://www.projekktor.com/
 * DivX - http://labs.divx.com/
-* SyntaxHighlighter - http://alexgorbatchev.com/SyntaxHighlighter/
+* Prism.js - http://prismjs.com/
 * ffmpeg - http://www.ffmpeg.org/
 
 3. DivX player requires viewers to install the player on their computer. In case

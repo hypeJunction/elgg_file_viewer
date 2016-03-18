@@ -9,7 +9,7 @@ $english = array(
 	'efv:app:google' => 'Google Docs Viewer',
 	'efv:app:msoffice' => 'MS Office Web Viewer',
 	'efv:app:projekktor' => 'Self-hosted player (Projekktor)',
-	'efv:app:syntaxhighlighter' => 'Inline (Syntax Highlighter)',
+	'efv:app:syntaxhighlighter' => 'Inline (Prism Syntax Highlighter)',
 	'efv:app:divx' => 'DivX Web Player',
 	'efv:app:none' => 'No preview',
 	

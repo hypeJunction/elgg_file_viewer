@@ -14,18 +14,18 @@ function elgg_file_viewer_init() {
 
 	elgg_register_css('projekktor', '/mod/elgg_file_viewer/vendors/projekktor-1.2.38r332/theme/maccaco/projekktor.style.css');
 
-	// Syntax highlighter / text support
-	elgg_register_js('syntaxhighlighter', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shCore.js', 'footer');
-	elgg_register_js('syntaxhighlighter.css', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shBrushCss.js', 'footer');
-	elgg_register_js('syntaxhighlighter.xml', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shBrushXml.js', 'footer');
-	elgg_register_js('syntaxhighlighter.plain', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js', 'footer');
-	elgg_register_js('syntaxhighlighter.js', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js', 'footer');
-	elgg_register_js('syntaxhighlighter.php', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/scripts/shBrushPhp.js', 'footer');
-	elgg_register_simplecache_view('js/elgg_file_viewer/syntaxhighlighter');
-	elgg_register_js('elgg.syntaxhighlighter', elgg_get_simplecache_url('js', 'elgg_file_viewer/syntaxhighlighter'), 'footer');
-
-	elgg_register_css('syntaxhighlighter.core', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/styles/shCore.css');
-	elgg_register_css('syntaxhighlighter.theme', '/mod/elgg_file_viewer/vendors/syntaxhighlighter_3.0.83/styles/shThemeDefault.css');
+	// Syntax highlighting
+	elgg_register_css('prism', elgg_get_simplecache_url('prism/themes/prism.css'));
+	elgg_extend_view('prism/themes/prism.css', 'prism/plugins/line-numbers/prism-line-numbers.css');
+	
+	elgg_define_js('prism', [
+		'src' => elgg_get_simplecache_url('prism/prism.js'),
+		'exports' => 'Prism',
+	]);
+	elgg_define_js('prism-line-numbers', [
+		'src' => elgg_get_simplecache_url('prism/plugins/line-numbers/prism-line-numbers.js'),
+		'deps' => ['prism'],
+	]);
 
 	elgg_register_page_handler('projekktor', 'elgg_file_viewer_projekktor_video');
 }

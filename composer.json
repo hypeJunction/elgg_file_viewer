@@ -16,7 +16,7 @@
 	],
 	"require": {
 		"olaferlandsen/ffmpeg-php-class": "dev-master",
-		"npm-asset/syntaxhighlighter": "~4.0"
+		"bower-asset/prism": "~1.0"
 	},
 	"require-dev": {
 		"composer/installers": "~1.0"

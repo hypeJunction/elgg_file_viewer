@@ -1,54 +1,51 @@
 <?php
-
 $entity = elgg_extract('entity', $vars);
 
-if (!elgg_instanceof($entity, 'object', 'file')) {
+if (!$entity instanceof ElggFile) {
 	return;
 }
 
 $info = pathinfo($entity->getFilenameOnFilestore());
 $extension = $info['extension'];
 
-elgg_load_js('syntaxhighlighter');
-elgg_load_js('elgg.syntaxhighlighter');
-elgg_load_css('syntaxhighlighter.core');
-elgg_load_css('syntaxhighlighter.theme');
+elgg_load_css('prism');
+elgg_require_js('elgg_file_viewer/apps/syntaxhighlighter');
 
 switch ($extension) {
 	default :
-		elgg_load_js('syntaxhighlighter.plain');
-		$brush = 'plain';
+		$class = "language-non";
+		break;
+
+	case 'html':
+	case 'htm':
+	case 'xml' :
+		$class = "language-markup";
 		break;
 
 	case 'js' :
-		elgg_load_js('syntaxhighlighter.js');
-		$brush = 'js';
+		$class = "language-javascript";
 		break;
 
 	case 'css' :
-		elgg_load_js('syntaxhighlighter.css');
-		$brush = 'css';
-		break;
-
-	case 'htm' :
-	case 'html' :
-	case 'xml' :
-		elgg_load_js('syntaxhighlighter.xml');
-		$brush = 'xml';
+		$class = "language-css";
 		break;
 
 	case 'php' :
-		elgg_load_js('syntaxhighlighter.php');
-		$brush = 'php';
+		$class = "language-php";
 		break;
-
 }
 
-$url = elgg_normalize_url("file/download/$entity->guid");
-$contents = htmlentities(file_get_contents($url));
+$entity->open('read');
+$contents = $entity->grabFile();
+$entity->close();
 
-echo '<div class="elgg-col elgg-col-1of1 clearfloat">';
-echo "<pre class=\"brush: $brush\">";
-echo $contents;
-echo '</pre>';
-echo '</div>';
+//$contents = htmlentities($contents);
+?>
+
+<div class="elgg-col elgg-col-1of1 clearfix">
+	<pre>
+		<?php
+		echo elgg_format_element('code', ['class' => implode(' ', [$class, 'line-numbers'])], htmlentities($contents));
+		?>
+	</pre>
+</div>
