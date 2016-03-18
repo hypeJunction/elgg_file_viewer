@@ -1,0 +1,25 @@
+{
+	"name": "hypejunction/elgg_file_viewer",
+	"version": "1.2.0",
+	"type": "elgg-plugin",
+	"description": "Media viewer for Elgg",
+	"homepage": "http://hypejunction.com",
+	"keywords": [
+		"elgg", "plugin", "files", "preview"
+	],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Ismayil Khayredinov",
+			"email": "info@hypejunction.com"
+		}
+	],
+	"require": {
+		"olaferlandsen/ffmpeg-php-class": "dev-master",
+		"npm-asset/syntaxhighlighter": "~4.0"
+	},
+	"require-dev": {
+		"composer/installers": "~1.0"
+	}
+}
+
