@@ -1,46 +1,33 @@
 Elgg File Viewer
 ================
 
-An extension to the file plugin that integrates third-party services
-and providers to render files inline:
+An extension to the file plugin that integrates third-party services and providers to render files inline:
 
 * Microsoft Office files (Office Web Viewer integration)
 * PDFs and other common file types (Google Docs Viewer integration)
-* Video/Audio (Projekktor & DivX Web Player)
+* Video/Audio (Video.js Player)
 * Text/Code (Prism.js integration)
 
 ## Notes ##
 
-1. Access to non-public files by Office Web Viewer and
-Google Docs Viewer is managed via Elgg's web services API. You must therefore
-enable Enable Web Services API via Administration > Configure > Settings >
-Advanced Settings. (Please note that these viewers will not work when you are testing
-locally)
+### Terms of Use
 
-2. Please make sure you comply with the Terms of Service for individual service
-providers
+Please make sure you comply with the Terms of Service for individual service providers
 * Office Web Viewer - http://office.microsoft.com/en-us/web-apps/view-office-documents-online-FX102727753.aspx
 * Google Docs Viewer - https://docs.google.com/viewer
-* Projekktor - http://www.projekktor.com/
-* DivX - http://labs.divx.com/
+* Video.js - http://videojs.com/
 * Prism.js - http://prismjs.com/
 * ffmpeg - http://www.ffmpeg.org/
 
-3. DivX player requires viewers to install the player on their computer. In case
-when the player is not available the browser will try to use another application
-installed on the user's computer. This method is very unreliable.
+### FFMpeg
 
-4. Since 1.2, you can enable ffmpeg conversion of uploaded video and audio files
-to web compatible formats thus ensuring that Projekktor works properly.
-To read more about ffmpeg go to http://www.ffmpeg.org/. You will need ffmpeg
-library installed on your server for this to work. It is usually located at
-/usr/local/bin/ffmpeg. Google the rest.
+You can enable ffmpeg conversion of uploaded video and audio files to convert them to web compatible formats thus ensuring that Video.js works properly.
+To read more about ffmpeg go to http://www.ffmpeg.org/. You will need ffmpeg library installed on your server for this to work. It is usually located at /usr/local/bin/ffmpeg. Google the rest.
 
 
 ## Acknowledgements ##
 
-* Initial development of the plugin was commissioned and sponsored by
-ArckInteractive (www.arckinteractive.com)
+* Initial development of the plugin was commissioned and sponsored by ArckInteractive (www.arckinteractive.com)
 
 
 ## Screenshots ##

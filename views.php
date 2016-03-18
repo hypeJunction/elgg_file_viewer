@@ -15,5 +15,6 @@ if (file_exists("$plugin_root/vendor/autoload.php")) {
 return [
 	'default' => [
 		'prism/' => $path . '/vendor/bower-asset/prism',
+		'videojs/' => $path . '/vendor/bower-asset/videojs/dist',
 	]
 ];

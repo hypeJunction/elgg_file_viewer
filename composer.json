@@ -15,8 +15,9 @@
 		}
 	],
 	"require": {
-		"olaferlandsen/ffmpeg-php-class": "dev-master",
-		"bower-asset/prism": "~1.0"
+		"bower-asset/prism": "~1.0",
+		"bower-asset/videojs": "~5.0",
+		"olaferlandsen/ffmpeg-php-class": "dev-master"
 	},
 	"require-dev": {
 		"composer/installers": "~1.0"
