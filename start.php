@@ -1,7 +1,5 @@
 <?php
 
-define('EFV_MIME_REMAP', elgg_get_plugin_setting('mime_remap', 'elgg_file_viewer'));
-
 /**
  * Elgg Viewer
  */
@@ -137,7 +135,7 @@ function elgg_file_viewer_get_mime_type($file) {
 		$mime = "application/octet-stream";
 	}
 
-	if (EFV_MIME_REMAP != 'yes') {
+	if (elgg_get_plugin_setting('mime_remap', 'elgg_file_viewer') != 'yes') {
 		return $mime;
 	}
 
