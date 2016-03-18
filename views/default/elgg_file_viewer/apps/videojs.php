@@ -29,7 +29,7 @@ switch ($base_type) {
 			'video/webm',
 			'video/ogv',
 		]);
-		$attr['poster'] = elgg_get_simplecache_url('elgg_file_viewer/video.jpg');
+		$attr['poster'] = ($entity->icontime) ? $entity->getIconURL('master') : elgg_get_simplecache_url('elgg_file_viewer/video.jpg');
 		break;
 
 	case 'audio' :
@@ -40,7 +40,7 @@ switch ($base_type) {
 			'audio/ogg',
 			'video/wav',
 		]);
-		$attr['poster'] = elgg_get_simplecache_url('elgg_file_viewer/audio.jpg');
+		$attr['poster'] = ($entity->icontime) ? $entity->getIconURL('master') : elgg_get_simplecache_url('elgg_file_viewer/audio.jpg');
 		break;
 }
 
