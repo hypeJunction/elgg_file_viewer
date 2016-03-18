@@ -26,4 +26,9 @@
 		<name>file</name>
 	</requires>
 
+	<suggests>
+		<type>plugin</type>
+		<name>vroom</name>
+	</suggests>
+	
 </plugin_manifest>

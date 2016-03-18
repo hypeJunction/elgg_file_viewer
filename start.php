@@ -31,6 +31,9 @@ function elgg_file_viewer_init() {
 	]);
 
 	elgg_register_page_handler('projekktor', 'elgg_file_viewer_projekktor_video');
+
+	elgg_register_event_handler('create', 'object', 'elgg_file_viewer_make_web_compatible');
+	elgg_register_event_handler('update:after', 'object', 'elgg_file_viewer_make_web_compatible');
 }
 
 /**
@@ -67,10 +70,10 @@ function elgg_file_viewer_get_media_url($file, $format) {
 	$output = new ElggFile();
 	$output->owner_guid = $file->owner_guid;
 	$output->setFilename("projekktor/$file->guid/$filename.$format");
-	
-	if (!$output->exists() && elgg_get_plugin_setting('enable_ffmpeg', 'elgg_file_viewer')) {
-		$output = elgg_file_viewer_convert_file($file, $format);
-	}
+
+//	if (!$output->exists() && elgg_get_plugin_setting('enable_ffmpeg', 'elgg_file_viewer')) {
+//		$output = elgg_file_viewer_convert_file($file, $format);
+//	}
 
 	return elgg_get_download_url($output);
 }
@@ -147,4 +150,83 @@ function elgg_file_viewer_convert_file($file, $format) {
 	}
 
 	return $output;
+}
+
+/**
+ * Create web compatible instances of audio/video files
+ *
+ * @param string   $event  "create"|"update:after"
+ * @param string   $type   "object"
+ * @param ElggFile $entity File entity
+ * @return void
+ */
+function elgg_file_viewer_make_web_compatible($event, $type, $entity) {
+
+	if (!$entity instanceof ElggFile) {
+		return;
+	}
+
+	if (!elgg_get_plugin_setting('enable_ffmpeg', 'elgg_file_viewer')) {
+		return;
+	}
+
+	if (!elgg_is_active_plugin('vroom')) {
+		return;
+	}
+
+	$file_guids = (array) elgg_get_config('elgg_file_viewer_file_guids');
+	$file_guids[] = $entity->guid;
+	elgg_set_config('elgg_file_viewer_file_guids', $file_guids);
+
+	elgg_register_event_handler('shutdown', 'system', 'elgg_file_viewer_vroom');
+}
+
+/**
+ * Vroom callback
+ * @return void
+ */
+function elgg_file_viewer_vroom() {
+
+	$file_guids = (array) elgg_get_config('elgg_file_viewer_file_guids');
+	$file_guids = array_unique($file_guids);
+
+	foreach ($file_guids as $guid) {
+		$entity = get_entity($guid);
+		if (!$entity instanceof ElggFile) {
+			continue;
+		}
+
+		$entity_mime = $entity->getMimeType();
+		list($base_type, $ext) = explode('/', $entity_mime);
+
+		$mimes = [];
+		switch ($base_type) {
+			case 'video' :
+				$mimes = [
+					'video/mp4',
+					'video/webm',
+					'video/ogv',
+				];
+				break;
+
+			case 'audio' :
+				$mimes = [
+					'audio/mpeg',
+					'audio/ogg',
+					'video/wav',
+				];
+				break;
+		}
+
+		foreach ($mimes as $mime) {
+			if ($mime == $entity_mime) {
+				continue;
+			}
+			list(, $ext) = explode('/', $mime);
+			$url = elgg_file_viewer_get_media_url($entity, $ext);
+			if (!$url) {
+				elgg_file_viewer_convert_file($entity, $ext);
+			}
+		}
+	}
 }

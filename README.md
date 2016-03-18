@@ -24,6 +24,8 @@ Please make sure you comply with the Terms of Service for individual service pro
 You can enable ffmpeg conversion of uploaded video and audio files to convert them to web compatible formats thus ensuring that Video.js works properly.
 To read more about ffmpeg go to http://www.ffmpeg.org/. You will need ffmpeg library installed on your server for this to work. It is usually located at /usr/local/bin/ffmpeg. Google the rest.
 
+FFMpeg conversion might be a time and resource consuming process. It is therefore offset to a shutdown event with vroom plugin.
+
 
 ## Acknowledgements ##
 
