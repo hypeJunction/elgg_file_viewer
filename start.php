@@ -31,33 +31,6 @@ function elgg_file_viewer_init() {
 }
 
 /**
- * Make file accessible via a rest handler
- *
- * @param int $guid GUID of the file
- */
-function elgg_file_viewer_download($guid) {
-
-	$file = get_entity($guid);
-
-	if (!elgg_instanceof($file, 'object', 'file')) {
-		return array('error' => elgg_echo('file:downloadfailed'));
-	}
-
-	$exportable_values = $file->getExportableValues();
-
-	$export = new stdClass();
-
-	foreach ($exportable_values as $v) {
-		$export->$v = $file->$v;
-	}
-
-	$export->url = $file->getURL();
-
-	return array($export);
-}
-
-
-/**
  * Get publicly accessible URL for the file
  *
  * @param ElggFile $file
