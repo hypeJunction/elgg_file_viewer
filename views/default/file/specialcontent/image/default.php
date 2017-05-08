@@ -2,7 +2,7 @@
 
 $entity = elgg_extract('entity', $vars);
 
-if (!elgg_instanceof($entity, 'object', 'file')) {
+if (!$entity instanceof ElggFile) {
 	return;
 }
 
