@@ -1,3 +1,13 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/hypeJunction/elgg_file_viewer/compare/2.0.0...v2.0.1) (2017-05-08)
+
+
+### Bug Fixes
+
+* **views:** do not restrict special content views by file subtype ([aac782d](https://github.com/hypeJunction/elgg_file_viewer/commit/aac782d))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2016-03-18)
 
