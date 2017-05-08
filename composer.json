@@ -1,6 +1,6 @@
 {
 	"name": "hypejunction/elgg_file_viewer",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"type": "elgg-plugin",
 	"description": "Media viewer for Elgg",
 	"homepage": "http://hypejunction.com",
