@@ -23,6 +23,11 @@ $info = pathinfo($entity->getFilenameOnFilestore());
 $extension = $info['extension'];
 
 $app = elgg_get_plugin_setting($extension, 'elgg_file_viewer');
+
+if (!$app) {
+	$app = elgg_get_plugin_setting('wav', 'elgg_file_viewer');
+}
+
 if (!$app || $app == 'none') {
 	return;
 }
