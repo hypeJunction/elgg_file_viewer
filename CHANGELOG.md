@@ -1,3 +1,14 @@
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/hypeJunction/elgg_file_viewer/compare/2.0.2...v2.0.3) (2018-10-15)
+
+
+### Bug Fixes
+
+* **player:** default unknown audio extensions to wav ([b5ba298](https://github.com/hypeJunction/elgg_file_viewer/commit/b5ba298))
+* **player:** default unknown video extensions to mp4 ([06511f1](https://github.com/hypeJunction/elgg_file_viewer/commit/06511f1))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/hypeJunction/elgg_file_viewer/compare/2.0.1...v2.0.2) (2017-05-08)
 
