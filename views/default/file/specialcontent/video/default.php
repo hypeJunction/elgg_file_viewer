@@ -8,8 +8,6 @@ if (!$entity instanceof ElggFile) {
 
 $mime = elgg_file_viewer_get_mime_type($entity);
 
-error_log($mime);
-
 $base_type = substr($mime, 0, strpos($mime, '/'));
 if ($base_type !== 'video') {
 	echo elgg_view("file/specialcontent/$base_type/default", $vars);
@@ -21,11 +19,15 @@ if (elgg_view_exists("file/specialcontent/$mime")) {
 	return;
 }
 
-
 $info = pathinfo($entity->getFilenameOnFilestore());
 $extension = $info['extension'];
 
 $app = elgg_get_plugin_setting($extension, 'elgg_file_viewer');
+
+if (!$app) {
+	$app = elgg_get_plugin_setting('mp4', 'elgg_file_viewer');
+}
+
 if (!$app || $app == 'none') {
 	return;
 }
