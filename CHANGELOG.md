@@ -1,3 +1,13 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/hypeJunction/elgg_file_viewer/compare/2.0.3...v2.1.0) (2019-04-18)
+
+
+### Features
+
+* **apps:** Add viewer.js support ([d8af326](https://github.com/hypeJunction/elgg_file_viewer/commit/d8af326))
+
+
+
 <a name="2.0.3"></a>
 ## [2.0.3](https://github.com/hypeJunction/elgg_file_viewer/compare/2.0.2...v2.0.3) (2018-10-15)
 
