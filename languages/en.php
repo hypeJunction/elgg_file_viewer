@@ -8,6 +8,7 @@ $english = array(
 	'efv:settings:ffprobe_path' => 'Specify the location of the ffprobe library on your server, if default fails',
 	
 	'efv:app:google' => 'Google Docs Viewer',
+	'efv:app:viewerjs' => 'Self-hosted viewer (Viewer.js)',
 	'efv:app:msoffice' => 'MS Office Web Viewer',
 	'efv:app:projekktor' => 'Self-hosted player (Video.js)',
 	'efv:app:syntaxhighlighter' => 'Inline (Prism Syntax Highlighter)',
@@ -16,6 +17,7 @@ $english = array(
 	
 	'efv:type:pdf' => 'PDF',
 	'efv:type:msoffice' => 'Microsoft Office Files',
+	'efv:type:odf' => 'Open Document Format',
 	'efv:type:media' => 'Video/Audio',
 	'efv:type:text' => 'Text',
 	'efv:type:code' => 'Code',

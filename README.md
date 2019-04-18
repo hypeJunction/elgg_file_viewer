@@ -6,6 +6,7 @@ An extension to the file plugin that integrates third-party services and provide
 
 * Microsoft Office files (Office Web Viewer integration)
 * PDFs and other common file types (Google Docs Viewer integration)
+* PDFs and Open Document Format (Viewer.js integration)
 * Video/Audio (Video.js Player)
 * Text/Code (Prism.js integration)
 
@@ -16,6 +17,7 @@ An extension to the file plugin that integrates third-party services and provide
 Please make sure you comply with the Terms of Service for individual service providers
 * Office Web Viewer - http://office.microsoft.com/en-us/web-apps/view-office-documents-online-FX102727753.aspx
 * Google Docs Viewer - https://docs.google.com/viewer
+* Viewer.js - https://viewerjs.org/
 * Video.js - http://videojs.com/
 * Prism.js - http://prismjs.com/
 * ffmpeg - http://www.ffmpeg.org/
